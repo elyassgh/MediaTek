@@ -3,7 +3,6 @@ package fstg.irisi.MediaTek.bean;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
 public class Facture {
@@ -18,18 +17,16 @@ public class Facture {
     private Client client;
     @Column(name="dateFact")
     private LocalDate date;
-    private LocalTime temps;
     private String adresseFact;
 
 
     public Facture() {
     }
 
-    public Facture(Long id, Long num, LocalDate date, LocalTime temps, String adresseFact, Client client) {
+    public Facture(Long id, Long num, LocalDate date, String adresseFact, Client client) {
         this.id = id;
         this.num = num;
         this.date = date;
-        this.temps = temps;
         this.adresseFact = adresseFact;
         this.client = client;
     }
@@ -56,14 +53,6 @@ public class Facture {
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    public LocalTime getTemps() {
-        return temps;
-    }
-
-    public void setTemps(LocalTime temps) {
-        this.temps = temps;
     }
 
     public String getAdresseFact() {

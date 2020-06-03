@@ -30,10 +30,8 @@ public class ClientRest {
         return clientService.findByCin(cin);
     }
 
-    @GetMapping("/categorie/{Id}")
-    public String ClientCat(@PathVariable Long id) {
-        return clientService.ClientCat(id);
-    }
+    @GetMapping("/categorie/{id}")
+    public String clientCat(@PathVariable Long id) { return clientService.clientCat(id); }
 
     @GetMapping("/ca/{id}")
     public double chiffreAffaire(@PathVariable Long id) { return clientService.chiffreAffaire(id); }

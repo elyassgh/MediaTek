@@ -12,7 +12,7 @@ public interface ClientDao extends JpaRepository<Client, Long> {
 
     Client findByCin(String cin);
 
-    @Query(value = "Select Categorie from v_chiffre_affaire where id = ?1", nativeQuery = true)
+    @Query(value = "Select Categorie from v_chiffre_affaire where id= ?1", nativeQuery = true)
     String clientCat (Long id);
 
     @Query(value = "Select Total from v_chiffre_affaire where id = ?1", nativeQuery = true)

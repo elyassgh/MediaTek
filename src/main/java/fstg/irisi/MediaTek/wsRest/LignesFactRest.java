@@ -24,8 +24,8 @@ public class LignesFactRest {
         return lignesFactService.findAll();
     }
 
-    @GetMapping("/id/{id}")
-    public List<LignesFact> findByIdFacture_Num(@PathVariable Long id) {
-        return lignesFactService.findByIdFacture_Num(id);
+    @GetMapping("/num/{num}")
+    public List<LignesFact> findByIdFacture_Num(@PathVariable Long num) {
+        return lignesFactService.findByIdFacture_Num(num);
     }
 }

@@ -4,6 +4,7 @@ import fstg.irisi.MediaTek.bean.Client;
 import fstg.irisi.MediaTek.dao.ClientDao;
 import fstg.irisi.MediaTek.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class ClientServiceImpl implements ClientService {
     public Client findByCin(String cin) { return clientDao.findByCin(cin); }
 
     @Override
-    public String ClientCat(Long id) { return clientDao.clientCat(id); }
+    public String clientCat(Long id) { return clientDao.clientCat(id); }
 
     @Override
     public double chiffreAffaire(Long id) {return clientDao.chiffreAffaire(id);}

@@ -73,7 +73,7 @@ public class Client {
         return cin;
     }
 
-    public void setCin(String cne) {
-        this.cin = cne;
+    public void setCin(String cin) {
+        this.cin = cin;
     }
 }
