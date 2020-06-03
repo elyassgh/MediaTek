@@ -15,14 +15,10 @@ public class ClientRest {
     ClientService clientService;
 
     @PostMapping("/")
-    public void save(@RequestBody Client client) {
-        clientService.save(client);
-    }
+    public void save(@RequestBody Client client) { clientService.save(client); }
 
     @DeleteMapping("/delete/{cne}")
-    public void deleteByCne(@PathVariable String cne) {
-        clientService.deleteByCne(cne);
-    }
+    public void deleteByCne(@PathVariable String cne) { clientService.deleteByCne(cne); }
 
     @GetMapping("/")
     public List<Client> findAll() {
@@ -46,7 +42,6 @@ public class ClientRest {
     public Long nbrFactures(@PathVariable Long id) {
         return clientService.nbrFactures(id);
     }
-
 
 
 }
