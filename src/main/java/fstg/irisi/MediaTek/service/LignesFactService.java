@@ -5,7 +5,7 @@ import fstg.irisi.MediaTek.bean.LignesFact;
 
 import java.util.List;
 
-public interface LignesFactureService {
+public interface LignesFactService {
 
     public void save(LignesFact lignesFact);
     public List<LignesFact> findAll();

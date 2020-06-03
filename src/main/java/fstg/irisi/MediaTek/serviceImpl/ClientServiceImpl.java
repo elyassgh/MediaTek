@@ -31,8 +31,13 @@ public class ClientServiceImpl implements ClientService {
     public Client findByCne(String cne) { return clientDao.findByCne(cne); }
 
     @Override
-    public String ClientCat(Long id) { return clientDao.ClientCat(id); }
+    public String ClientCat(Long id) { return clientDao.clientCat(id); }
 
     @Override
     public double chiffreAffaire(Long id) {return clientDao.chiffreAffaire(id);}
+
+    @Override
+    public Long nbrFactures(Long id) {
+        return clientDao.nbrFactures(id);
+    }
 }

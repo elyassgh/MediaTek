@@ -12,5 +12,6 @@ public interface ClientService {
     public Client findByCne(String cne);
     public String ClientCat (Long id);
     public double chiffreAffaire (Long id);
+    public Long nbrFactures (Long id);
 
 }

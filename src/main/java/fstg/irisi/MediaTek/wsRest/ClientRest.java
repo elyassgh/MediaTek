@@ -34,13 +34,19 @@ public class ClientRest {
         return clientService.findByCne(cne);
     }
 
-    @GetMapping("/clientCategorie/{Id}")
+    @GetMapping("/categorie/{Id}")
     public String ClientCat(@PathVariable Long id) {
         return clientService.ClientCat(id);
     }
 
     @GetMapping("/ca/{id}")
-    public double chiffreAffaire(@PathVariable Long id) {
-        return clientService.chiffreAffaire(id);    }
+    public double chiffreAffaire(@PathVariable Long id) { return clientService.chiffreAffaire(id); }
+
+    @GetMapping("/nbrFact/{id}")
+    public Long nbrFactures(@PathVariable Long id) {
+        return clientService.nbrFactures(id);
+    }
+
+
 
 }

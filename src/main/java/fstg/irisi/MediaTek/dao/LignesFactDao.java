@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LignesFactureDao extends JpaRepository<LignesFact, Long> {
+public interface LignesFactDao extends JpaRepository<LignesFact, Long> {
 
     List<LignesFact> findByIdFacture (Facture facture);
 
