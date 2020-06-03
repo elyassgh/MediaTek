@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.fstg</groupId>
-	<artifactId>ConservationProject</artifactId>
+	<groupId>fstg.irisi</groupId>
+	<artifactId>MediaTek</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ConservationProject</name>
-	<description>Demo project for Spring Boot</description>
+	<name>MediaTek Spring boot api</name>
+	<description>Spring Boot Project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
