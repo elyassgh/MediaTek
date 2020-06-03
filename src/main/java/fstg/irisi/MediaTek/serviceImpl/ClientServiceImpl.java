@@ -15,7 +15,7 @@ public class ClientServiceImpl implements ClientService {
     public ClientDao clientDao;
 
     @Override
-    public void deleteByCne(String cne) { clientDao.deleteByCne(cne); }
+    public void deleteByCin(String cin) { clientDao.deleteByCin(cin); }
 
     @Override
     public void save(Client client) {
@@ -28,7 +28,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findByCne(String cne) { return clientDao.findByCne(cne); }
+    public Client findByCin(String cin) { return clientDao.findByCin(cin); }
 
     @Override
     public String ClientCat(Long id) { return clientDao.clientCat(id); }

@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface ClientService {
 
-    public void deleteByCne(String cne);
+    public void deleteByCin(String cin);
     public void save(Client client);
     public List<Client> findAll();
-    public Client findByCne(String cne);
+    public Client findByCin(String cin);
     public String ClientCat (Long id);
     public double chiffreAffaire (Long id);
     public Long nbrFactures (Long id);

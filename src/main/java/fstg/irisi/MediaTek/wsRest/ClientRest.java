@@ -17,17 +17,17 @@ public class ClientRest {
     @PostMapping("/")
     public void save(@RequestBody Client client) { clientService.save(client); }
 
-    @DeleteMapping("/delete/{cne}")
-    public void deleteByCne(@PathVariable String cne) { clientService.deleteByCne(cne); }
+    @DeleteMapping("/delete/{cin}")
+    public void deleteByCin(@PathVariable String cin) { clientService.deleteByCin(cin); }
 
     @GetMapping("/")
     public List<Client> findAll() {
         return clientService.findAll();
     }
 
-    @GetMapping("/cne/{cne}")
-    public Client findByCne(@PathVariable String cne) {
-        return clientService.findByCne(cne);
+    @GetMapping("/cin/{cin}")
+    public Client findByCin(@PathVariable String cin) {
+        return clientService.findByCin(cin);
     }
 
     @GetMapping("/categorie/{Id}")

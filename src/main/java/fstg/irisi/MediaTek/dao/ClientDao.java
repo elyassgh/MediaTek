@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface ClientDao extends JpaRepository<Client, Long> {
 
-    Client findByCne(String cne);
+    Client findByCin(String cin);
 
     @Query(value = "Select Categorie from v_chiffre_affaire where id = ?1", nativeQuery = true)
     String clientCat (Long id);
@@ -23,8 +23,8 @@ public interface ClientDao extends JpaRepository<Client, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "delete from client where cne =?1", nativeQuery =true)
-    void deleteByCne(String cne);
+    @Query(value = "delete from client where cin =?1", nativeQuery =true)
+    void deleteByCin(String cin);
 
 
 }

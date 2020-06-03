@@ -12,17 +12,17 @@ public class Client {
     private Long id;
 
     private String nom;
-    private String cne;
     private String prenom;
+    private String cin;
     private String adresse;
     private String tele;
 
     public Client() {
     }
 
-    public Client(Long id,String cne, String nom, String prenom, String adresse, String tele) {
+    public Client(Long id, String cin, String nom, String prenom, String adresse, String tele) {
         this.id = id;
-        this.cne = cne;
+        this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
@@ -69,11 +69,11 @@ public class Client {
         this.tele = tele;
     }
 
-    public String getCne() {
-        return cne;
+    public String getCin() {
+        return cin;
     }
 
-    public void setCne(String cne) {
-        this.cne = cne;
+    public void setCin(String cne) {
+        this.cin = cne;
     }
 }

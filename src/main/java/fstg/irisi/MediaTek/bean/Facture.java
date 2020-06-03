@@ -14,12 +14,13 @@ public class Facture {
     private Long id;
 
     private Long num;
+    @ManyToOne
+    private Client client;
     @Column(name="dateFact")
     private LocalDate date;
     private LocalTime temps;
     private String adresseFact;
-    @ManyToOne
-    private Client client;
+
 
     public Facture() {
     }
