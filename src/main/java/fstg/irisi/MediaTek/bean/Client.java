@@ -2,9 +2,10 @@ package fstg.irisi.MediaTek.bean;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Client {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="client_seq_gen")
@@ -13,6 +14,7 @@ public class Client {
 
     private String nom;
     private String prenom;
+    @Column(unique = true)
     private String cin;
     private String adresse;
     private String tele;

@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface FactureService {
 
-    Facture findByNum (Long num);
+    public Facture findByReference (String reference);
+    public int deleteByReference (String reference);
+    public int update (Facture facture);
     public void save(Facture facture);
     public List<Facture> findAll();
     public List<Facture> findByDate (LocalDate date);
@@ -15,5 +17,6 @@ public interface FactureService {
     public List<Facture> findByDateAndClient_Id (LocalDate date, Long id);
     public List<Facture> findAllByAdresseFact (String adresseFact);
     public List<Facture> findAllByAdresseFactAndDate (String adresseFact, LocalDate date);
+    public double total_fact (String reference);
 
 }

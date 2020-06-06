@@ -8,6 +8,7 @@ public interface ClientService {
 
     public void deleteByCin(String cin);
     public void save(Client client);
+    public int update(Client client);
     public List<Client> findAll();
     public Client findByCin(String cin);
     public String clientCat (Long id);

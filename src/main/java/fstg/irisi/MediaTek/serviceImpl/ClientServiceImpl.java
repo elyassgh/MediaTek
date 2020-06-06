@@ -4,7 +4,6 @@ import fstg.irisi.MediaTek.bean.Client;
 import fstg.irisi.MediaTek.dao.ClientDao;
 import fstg.irisi.MediaTek.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +20,21 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void save(Client client) {
         clientDao.save(client);
+    }
+
+    @Override
+    public int update(Client client) {
+        Client cli = clientDao.findByCin(client.getCin());
+        if(cli != null) {
+            cli.setAdresse(client.getAdresse());
+            cli.setCin(client.getCin());
+            cli.setNom(client.getNom());
+            cli.setPrenom(client.getPrenom());
+            cli.setTele(client.getTele());
+            try { clientDao.save(cli); return 1;
+            } catch (Exception e) { return -1; }
+        }
+            return 0;
     }
 
     @Override

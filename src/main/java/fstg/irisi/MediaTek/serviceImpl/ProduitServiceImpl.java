@@ -31,6 +31,20 @@ public class ProduitServiceImpl implements ProduitService {
     }
 
     @Override
+    public int update(Produit produit) {
+        Produit prod = produitDao.getOne(produit.getId());
+        if (prod != null) {
+            prod.setCategorie(produit.getCategorie());
+            prod.setDesignation(produit.getDesignation());
+            prod.setPrixUnit(produit.getPrixUnit());
+            prod.setQteStock(produit.getQteStock());
+            try { produitDao.save(prod); return 1; }
+            catch (Exception e) { return -1; }
+        }
+        return 0;
+    }
+
+    @Override
     public List<Produit> findAll() {
         return produitDao.findAll();
     }

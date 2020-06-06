@@ -9,13 +9,10 @@ import java.util.Objects;
 @Embeddable
 public class CleLignesFact implements Serializable {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
-	@JoinColumn(name="num_facture")
+	@JoinColumn(name="id_facture")
     private Facture facture;
 
 	@ManyToOne

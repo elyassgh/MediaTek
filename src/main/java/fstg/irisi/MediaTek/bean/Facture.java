@@ -1,18 +1,19 @@
 package fstg.irisi.MediaTek.bean;
 
-
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Facture {
+public class Facture implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="facture_seq_gen")
     @SequenceGenerator(name="facture_seq_gen", sequenceName="FACT_SEQ")
     private Long id;
 
-    private Long num;
+    @Column(unique = true)
+    private String reference;
     @ManyToOne
     private Client client;
     @Column(name="dateFact")
@@ -23,12 +24,12 @@ public class Facture {
     public Facture() {
     }
 
-    public Facture(Long id, Long num, LocalDate date, String adresseFact, Client client) {
+    public Facture(Long id, String reference, Client client, LocalDate date, String adresseFact) {
         this.id = id;
-        this.num = num;
+        this.reference = reference;
+        this.client = client;
         this.date = date;
         this.adresseFact = adresseFact;
-        this.client = client;
     }
 
     public Long getId() {
@@ -39,12 +40,12 @@ public class Facture {
         this.id = id;
     }
 
-    public Long getNum() {
-        return num;
+    public String getReference() {
+        return reference;
     }
 
-    public void setNum(Long num) {
-        this.num = num;
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public LocalDate getDate() {

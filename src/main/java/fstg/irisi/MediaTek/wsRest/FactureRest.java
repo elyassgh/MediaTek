@@ -2,6 +2,8 @@ package fstg.irisi.MediaTek.wsRest;
 
 import fstg.irisi.MediaTek.bean.Facture;
 import fstg.irisi.MediaTek.service.FactureService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,50 +11,78 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/MediaTek/Facture")
+@Api("L'api de la gestion des factures")
+@RequestMapping("/MediaTek-Api/Facture")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class FactureRest {
 
     @Autowired
     FactureService factureService;
 
+    @ApiOperation("Supprimer une facture via sa reference")
+    @DeleteMapping("/delete/reference/{reference}")
+    public int deleteByReference(@PathVariable String reference) {
+        return factureService.deleteByReference(reference);
+    }
+
+    @ApiOperation("Modifier une facture")
+    @PutMapping("/")
+    public int update(@RequestBody Facture facture) {
+        return factureService.update(facture);
+    }
+
+    @ApiOperation("Ajouter une facture")
     @PostMapping("/")
     public void save(@RequestBody Facture facture) {
         factureService.save(facture);
     }
 
+    @ApiOperation("Trouver tous les factures")
     @GetMapping("/")
     public List<Facture> findAll() {
         return factureService.findAll();
     }
 
-    @GetMapping("/num/{num}")
-    public Facture findByNum(Long num) {
-        return factureService.findByNum(num);
+    @ApiOperation("Trouver une facture via sa reference")
+    @GetMapping("/find/reference/{reference}")
+    public Facture findByReference(@PathVariable String reference) {
+        return factureService.findByReference(reference);
     }
 
+    @ApiOperation("Trouver la liste des factures d'une date")
     @GetMapping("/date/{date}")
     public List<Facture> findByDate(@PathVariable LocalDate date) {
         return factureService.findByDate(date);
     }
 
+    @ApiOperation("Trouver la liste des factures d'un client via son id ")
     @GetMapping("/all/{id}")
     public List<Facture> findAllByClient_Id(@PathVariable Long id) {
         return factureService.findAllByClient_Id(id);
     }
 
+    @ApiOperation("Trouver la liste des facture d'un client d'une date via son id et la date")
     @GetMapping("/all/{id}/date/{date}")
     public List<Facture> findByDateAndClient_Id(@PathVariable LocalDate date, @PathVariable Long id) {
         return factureService.findByDateAndClient_Id(date, id);
     }
 
+    @ApiOperation("Trouver la liste des factures d'une adresse de facturation")
     @GetMapping("/adresse/{adresseFact}")
     public List<Facture> findAllByAdresseFact(@PathVariable String adresseFact) {
         return factureService.findAllByAdresseFact(adresseFact);
     }
 
+    @ApiOperation("Trouver la liste des factures d'une adresse de facturation d'une date")
     @GetMapping("/adresse/{adresseFact}/date/{date}")
     public List<Facture> findAllByAdresseFactAndDate(@PathVariable String adresseFact, @PathVariable LocalDate date) {
         return factureService.findAllByAdresseFactAndDate(adresseFact, date);
+    }
+
+    @ApiOperation("Trouver le total d'une facture via sa reference")
+    @GetMapping("/total/reference/{reference}")
+    public double total_fact(@PathVariable String reference) {
+        return factureService.total_fact(reference);
     }
 }
 

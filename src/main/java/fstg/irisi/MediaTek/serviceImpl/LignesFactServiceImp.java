@@ -7,6 +7,7 @@ import fstg.irisi.MediaTek.service.FactureService;
 import fstg.irisi.MediaTek.service.LignesFactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,8 +30,19 @@ public class LignesFactServiceImp implements LignesFactService {
     }
 
     @Override
-    public List<LignesFact> findByIdFacture_Num(Long num) {
-        Facture facture = factureService.findByNum(num);
+    @Transactional
+    public int deleteByIdFacture_Reference(String reference) {
+        Facture facture = factureService.findByReference(reference);
+        if (facture != null){
+            try { lignesFactDao.deleteByIdFacture(facture); return 1; }
+            catch (Exception e) { return -1; }
+        }
+        return 0;
+    }
+
+    @Override
+    public List<LignesFact> findByIdFacture_Reference(String reference) {
+        Facture facture = factureService.findByReference(reference);
         return lignesFactDao.findByIdFacture(facture);
     }
 

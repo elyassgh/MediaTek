@@ -16,8 +16,24 @@ public class FactureServiceImpl implements FactureService {
     public FactureDao factureDao;
 
     @Override
-    public Facture findByNum(Long num) {
-        return factureDao.findByNum(num);
+    public Facture findByReference(String reference) {
+        return factureDao.findByReference(reference);
+    }
+
+    @Override
+    public int deleteByReference(String reference) {
+        return factureDao.deleteByReference(reference);
+    }
+
+    @Override
+    public int update(Facture facture) {
+        Facture fact = findByReference(facture.getReference());
+        if (fact != null) {
+            fact.setAdresseFact(facture.getAdresseFact());
+            try { factureDao.save(fact); return 1;
+            } catch (Exception e) { return -1; }
+        }
+        return 0;
     }
 
     @Override
@@ -53,5 +69,10 @@ public class FactureServiceImpl implements FactureService {
     @Override
     public List<Facture> findAllByAdresseFactAndDate(String adresseFact, LocalDate date) {
         return factureDao.findAllByAdresseFactAndDate(adresseFact, date);
+    }
+
+    @Override
+    public double total_fact(String reference) {
+        return factureDao.total_fact(reference);
     }
 }
