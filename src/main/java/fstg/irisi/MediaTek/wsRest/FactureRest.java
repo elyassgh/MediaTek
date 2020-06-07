@@ -25,16 +25,18 @@ public class FactureRest {
         return factureService.deleteByReference(reference);
     }
 
-    @ApiOperation("Modifier une facture")
-    @PutMapping("/")
-    public int update(@RequestBody Facture facture) {
-        return factureService.update(facture);
+
+    @ApiOperation("Modifier l'adresse de facturation d'une facture")
+    @PutMapping("/reference/{reference}/Adresse{adresseFact}")
+    public int update(@PathVariable String reference, @PathVariable String adresseFact) {
+        return factureService.update(reference, adresseFact);
     }
 
-    @ApiOperation("Ajouter une facture")
-    @PostMapping("/")
-    public void save(@RequestBody Facture facture) {
-        factureService.save(facture);
+
+    @ApiOperation("Ajouter une facture ,Mentioner l'adresse de facturation et le cin du client (FK)!")
+    @PostMapping("/AdresseFact/{adresse}/cin/{cin}")
+    public int save(@PathVariable String adresse,@PathVariable String cin) {
+       return factureService.save(adresse,cin);
     }
 
     @ApiOperation("Trouver tous les factures")

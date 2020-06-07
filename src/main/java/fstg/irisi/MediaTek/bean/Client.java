@@ -10,11 +10,12 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="client_seq_gen")
     @SequenceGenerator(name="client_seq_gen", sequenceName="CLIENT_SEQ")
+    @Column(name = "id")
     private Long id;
 
     private String nom;
     private String prenom;
-    @Column(unique = true)
+    @Column(unique = true,insertable=false, updatable=false)
     private String cin;
     private String adresse;
     private String tele;

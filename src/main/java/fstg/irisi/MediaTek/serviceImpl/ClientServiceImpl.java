@@ -55,4 +55,5 @@ public class ClientServiceImpl implements ClientService {
     public Long nbrFactures(Long id) {
         return clientDao.nbrFactures(id);
     }
+
 }

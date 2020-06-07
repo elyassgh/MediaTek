@@ -13,5 +13,6 @@ public interface LignesFactDao extends JpaRepository<LignesFact, Long> {
 
     List<LignesFact> findByIdFacture (Facture facture);
     void deleteByIdFacture (Facture facture);
+    
 
 }

@@ -49,7 +49,7 @@ public class ProduitRest {
         return produitService.findById(id);
     }
 
-    @ApiOperation("Trouve la liste des produit d'une catégorie")
+    @ApiOperation("Trouver la liste des produit d'une catégorie")
     @GetMapping("/Categorie/{categorie}")
     public List<Produit> findAllByCategorie(@PathVariable String categorie) {
         return produitService.findAllByCategorie(categorie);
@@ -61,7 +61,7 @@ public class ProduitRest {
         return produitService.findByQteStockLessThanEqual(qte);
     }
 
-    @ApiOperation("Trouve le degré de demande d'un produit via son id")
+    @ApiOperation("Trouver le degré de demande d'un produit via son id")
     @GetMapping("/degreDemande/{id}")
     public String degreDemande(@PathVariable Long id) {
         return produitService.degreDemande(id);

@@ -24,4 +24,7 @@ public interface FactureDao extends JpaRepository<Facture, Long> {
 
     @Query(value ="Select Total from Total_cmd where ref = ?1", nativeQuery = true)
     double total_fact (String reference);
+
+    @Query(value = "Select reference from facture where id like (select max(id) from facture)", nativeQuery = true)
+    String lastReference();
 }

@@ -9,8 +9,8 @@ public interface FactureService {
 
     public Facture findByReference (String reference);
     public int deleteByReference (String reference);
-    public int update (Facture facture);
-    public void save(Facture facture);
+    public int update (String reference , String adresseFact);
+    public int save(String adresse, String cin);
     public List<Facture> findAll();
     public List<Facture> findByDate (LocalDate date);
     public List<Facture> findAllByClient_Id (Long id);
@@ -18,5 +18,7 @@ public interface FactureService {
     public List<Facture> findAllByAdresseFact (String adresseFact);
     public List<Facture> findAllByAdresseFactAndDate (String adresseFact, LocalDate date);
     public double total_fact (String reference);
+    public String lastReference();
+
 
 }

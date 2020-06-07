@@ -61,4 +61,9 @@ public class ProduitServiceImpl implements ProduitService {
 
     @Override
     public String degreDemande(Long id) { return produitDao.degreDemande(id); }
+
+    @Override
+    public Produit findProduit(Long id) {
+        return produitDao.getOne(id);
+    }
 }

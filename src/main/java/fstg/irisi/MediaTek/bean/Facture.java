@@ -15,6 +15,7 @@ public class Facture implements Serializable {
     @Column(unique = true)
     private String reference;
     @ManyToOne
+    @JoinColumn(name ="id_client",insertable=true, updatable=false)
     private Client client;
     @Column(name="dateFact")
     private LocalDate date;

@@ -14,5 +14,4 @@ public interface ClientService {
     public String clientCat (Long id);
     public double chiffreAffaire (Long id);
     public Long nbrFactures (Long id);
-
 }

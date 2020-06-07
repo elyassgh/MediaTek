@@ -18,10 +18,11 @@ public class LignesFactRest {
     @Autowired
     LignesFactService lignesFactService;
 
+
     @ApiOperation("Ajouter un ligne de facture")
-    @PostMapping("/")
-    public void save(@RequestBody LignesFact lignesFact) {
-        lignesFactService.save(lignesFact);
+    @PostMapping("/ref/{reference},{id}/qte/{qte}")
+    public void save(@PathVariable String reference, @PathVariable Long id, @PathVariable int qte) {
+        lignesFactService.save(reference, id, qte);
     }
 
     @ApiOperation("Trouver tous les lignes de facture de tous les les factures")
