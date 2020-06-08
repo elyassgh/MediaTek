@@ -66,4 +66,9 @@ public class ProduitServiceImpl implements ProduitService {
     public Produit findProduit(Long id) {
         return produitDao.getOne(id);
     }
+
+    @Override
+    public List<Produit> produitTrend() {
+        return produitDao.produitTrend();
+    }
 }

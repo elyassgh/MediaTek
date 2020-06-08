@@ -66,4 +66,10 @@ public class ProduitRest {
     public String degreDemande(@PathVariable Long id) {
         return produitService.degreDemande(id);
     }
+
+    @ApiOperation("Trouver les produit ayant un degre de demande forte et une quantité en stock mois de 10")
+    @GetMapping("/trendingProduit")
+    public List<Produit> produitTrend() {
+        return produitService.produitTrend();
+    }
 }

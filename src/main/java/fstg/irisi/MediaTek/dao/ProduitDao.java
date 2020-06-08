@@ -16,4 +16,6 @@ public interface ProduitDao extends JpaRepository<Produit ,Long> {
     @Query (value= "Select DegreDemande(?1) from dual" , nativeQuery = true)
     String degreDemande (Long id);
 
+    @Query(value = "select * from produit where degreDemande(produit.id)='Forte' and produit.qte_Stock < 10",nativeQuery = true)
+    List<Produit> produitTrend();
 }

@@ -16,5 +16,6 @@ public interface ProduitService {
     public List<Produit> findByQteStockLessThanEqual(int qte);
     public String degreDemande (Long id);
     public Produit findProduit(Long id);
+    public List<Produit> produitTrend();
 
 }
