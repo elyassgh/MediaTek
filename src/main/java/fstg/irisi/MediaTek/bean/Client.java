@@ -15,7 +15,7 @@ public class Client implements Serializable {
 
     private String nom;
     private String prenom;
-    @Column(unique = true,insertable=false, updatable=false)
+    @Column(unique = true,insertable=true, updatable=false)
     private String cin;
     private String adresse;
     private String tele;
