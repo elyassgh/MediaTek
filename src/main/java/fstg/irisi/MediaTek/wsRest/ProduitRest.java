@@ -22,7 +22,7 @@ public class ProduitRest {
     @ApiOperation("Ajouter un produit")
     @PostMapping("/")
     public void save(@RequestBody Produit produit) {
-        produitService.save(produit);
+            produitService.save(produit);
     }
 
     @ApiOperation("Supprimer un produit via son id")

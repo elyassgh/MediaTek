@@ -1,7 +1,7 @@
 package fstg.irisi.MediaTek.bean;
 
-
 import javax.persistence.*;
+import java.io.File;
 import java.io.Serializable;
 
 @Entity
@@ -69,4 +69,5 @@ public class Produit implements Serializable {
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
+
 }

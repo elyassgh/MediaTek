@@ -1,6 +1,7 @@
 package fstg.irisi.MediaTek.service;
 
 import fstg.irisi.MediaTek.bean.Produit;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
