@@ -86,5 +86,11 @@ public class FactureRest {
     public double total_fact(@PathVariable String reference) {
         return factureService.total_fact(reference);
     }
+
+    @ApiOperation("L'id du derniére facture")
+    @GetMapping("/lastFacture")
+    public Long lastFacture() {
+        return factureService.findByReference(factureService.lastReference()).getId();
+    }
 }
 
