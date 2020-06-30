@@ -18,7 +18,7 @@ public interface ClientDao extends JpaRepository<Client, Long> {
     @Query(value = "Select Total from v_chiffre_affaire where id = ?1", nativeQuery = true)
     double chiffreAffaire (Long id);
 
-    @Query(value ="Select count(*) from Facture where client = ?1", nativeQuery = true)
+    @Query(value ="Select count(*) from Facture where id_client = ?1", nativeQuery = true)
     Long nbrFactures (Long id);
 
     @Modifying

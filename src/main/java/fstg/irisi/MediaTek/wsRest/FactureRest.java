@@ -88,7 +88,7 @@ public class FactureRest {
     }
 
     @ApiOperation("La ref du derniére facture")
-    @GetMapping("/lastFacture")
+    @GetMapping(value = "/lastFacture", produces = "application/json" )
     public String lastFacture() {
         return factureService.lastReference();
     }
